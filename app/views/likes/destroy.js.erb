@@ -1,0 +1,3 @@
+console.log("Unlike")
+
+$("#unlike-<%= @like.photo_id %>").html("<%= j render partial: 'likes/form', locals: { like: @like } %>");

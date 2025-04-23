@@ -1,0 +1,4 @@
+console.log("Like Created");
+
+// Update the button or UI to reflect the new state
+$("#like-<%= @like.photo_id %>").html("<%= j render partial: 'likes/unlike_button', locals: { like: @like } %>");
