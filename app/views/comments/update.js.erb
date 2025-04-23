@@ -1,0 +1,4 @@
+
+var updated = $("<%= j(render @comment) %>");
+
+$("#<%= dom_id(@comment) %>").replaceWith(updated);

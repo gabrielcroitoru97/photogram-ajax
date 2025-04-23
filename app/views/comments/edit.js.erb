@@ -1,0 +1,9 @@
+console.log("edit.js.erb firing for comment", <%= @comment.id %>);
+
+var form_html = $("<%= j(render partial: 'comments/edit_form', locals: { :comment => @comment }) %>");
+
+$("#<%= dom_id(@comment) %>").html(form_html);
+
+var bodyEl = $("#<%= dom_id(@comment, :body) %>");
+
+bodyEl.text("<%= j(@comment.body) %>");

@@ -1,4 +1,5 @@
 <li id="<%= dom_id(comment) %>" class="list-group-item">
+
   <div class="d-flex">
     <div class="flex-shrink-0">
       <%= image_tag comment.author.avatar_image_url, class: "rounded-circle me-2 img-cover img-small" %>
@@ -11,9 +12,11 @@
 
         <div>
           <% if comment.author == current_user %>
-            <%= link_to edit_comment_path(comment), class: "btn btn-link btn-sm text-muted" do %>
+            <%= link_to( edit_comment_path(comment), { :remote => true, :class => "btn btn-link btn-sm text-muted"}
+            ) do %>
               <i class="fas fa-edit fa-fw"></i>
             <% end %>
+
 
             <%= button_to comment, 
                 method: :delete, 
@@ -26,7 +29,7 @@
           <% end %>
         </div>
       </div>
-      <p><%= comment.body %></p>
+        <p id="<%=dom_id(comment) %>" class="list-group-item-action"><%= comment.body %></p>
     </div>
   </div> 
 </li>
