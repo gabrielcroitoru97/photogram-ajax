@@ -10,8 +10,9 @@ class FollowRequestsController < ApplicationController
       if @follow_request.save
         format.html { redirect_back fallback_location: root_url, notice: "Follow request was successfully created." }
         format.json { render :show, status: :created, location: @follow_request }
+        format.js { render template: "follow_requests/create" }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_back fallback_location: root_url, alert: "Unable to create follow request." }
         format.json { render json: @follow_request.errors, status: :unprocessable_entity }
       end
     end
